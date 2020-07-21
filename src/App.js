@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Header from './Components/Header'
+import SubmitForm from './Components/SubmitForm'
+import ToDoList from './Components/ToDoList'
+import 'react-bulma-components/dist/react-bulma-components.min.css';
 import './App.css';
+// https://medium.com/javascript-in-plain-english/build-a-simple-todo-app-with-react-561579b39ad1
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    tasks: ['task 1', 'task 2', 'task 3']
+  }
+
+  render(){
+    return (
+      <div className='wrapper'>
+        <div className='card frame'>
+          <Header numOfTodo={this.state.tasks.length} />
+          <ToDoList tasks={this.state.tasks}/>
+        </div>
+        
+      </div>
+      );
+  }
 }
 
 export default App;
