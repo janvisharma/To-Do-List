@@ -2,9 +2,15 @@ import React, { Component } from "react";
 
 class SubmitForm extends Component{
     state = {term: ''}
+    handleSubmit = (e) => {
+        e.preventDefault();
+        if(this.state.term == '') return;
+        this.props.onFormSubmit(this.state.term);
+        this.setState({term: ''});
+    }
     render(){
         return(
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <input 
                 type = 'text'
                 className = 'input'

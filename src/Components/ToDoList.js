@@ -4,8 +4,9 @@ const ToDoList = (props) => {
     // let new_array = arr.map(function callback( currentValue[, index[, array]]) {
     // return element for new_array
     // }[, thisArg])
+
     const todos = props.tasks.map((todo, index) => {
-        return <Todo content={todo} key={index} id={index} />
+        return <Todo content={todo} key={index} id={index} onDelete={props.onDelete}/>
     })
 
     return (
